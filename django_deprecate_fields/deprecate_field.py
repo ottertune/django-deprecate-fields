@@ -31,7 +31,7 @@ def __deprecate_warn__set__(self, obj, val):
     )
     warnings.warn(msg, DeprecationWarning, stacklevel=2)
     logger.warning(msg)
-    self.__original_set(val)
+    self.__patched_return_value = val
     
 def monkey_patch_deprecated_methods(field_instance, return_replacement):
     field_instance.__patched_return_value = return_replacement
